@@ -14,18 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/autor")
 public class AutorController {
-	
+
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
 	@PostMapping
 	@Transactional
-	public ResponseEntity<?> cadastrar(@RequestBody @Valid AutorForm autorForm){
+	public ResponseEntity<?> cadastrar(@RequestBody @Valid AutorForm autorForm) {
 		Autor autor = autorForm.toModel();
 		entityManager.persist(autor);
-		
+
 		return ResponseEntity.ok().build();
 	}
-	
-
 }

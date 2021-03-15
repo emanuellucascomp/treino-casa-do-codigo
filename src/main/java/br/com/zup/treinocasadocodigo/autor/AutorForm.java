@@ -4,11 +4,13 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import br.com.zup.treinocasadocodigo.config.validacao.CustomUniqueValue;
+
 public class AutorForm {
 	
 	@NotBlank
 	private String nome;
-	@NotBlank @Email
+	@NotBlank @Email @CustomUniqueValue(message = "Email já cadastrado no sistema.")
 	private String email;
 	@NotBlank @Size(max = 400)
 	private String descricao;
@@ -22,6 +24,10 @@ public class AutorForm {
 	
 	public Autor toModel() {
 		return new Autor(nome, email, descricao);
+	}
+	
+	public String getEmail() {
+		return this.email;
 	}
 	
 
