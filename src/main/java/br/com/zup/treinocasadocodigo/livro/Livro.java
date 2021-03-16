@@ -49,4 +49,12 @@ public class Livro {
 		this.autor = autor;
 	}
 
+	public String getTitulo() {
+		return this.titulo;
+	}
+
+	public Long getId() {
+		return this.id;
+	}
+
 }
