@@ -10,7 +10,7 @@ public class AutorForm {
 	
 	@NotBlank
 	private String nome;
-	@NotBlank @Email @CustomUniqueValue(message = "Email já cadastrado no sistema.")
+	@NotBlank @Email @CustomUniqueValue(dataClass = Autor.class, field = "email" , message = "Email já cadastrado no sistema.")
 	private String email;
 	@NotBlank @Size(max = 400)
 	private String descricao;
@@ -25,10 +25,4 @@ public class AutorForm {
 	public Autor toModel() {
 		return new Autor(nome, email, descricao);
 	}
-	
-	public String getEmail() {
-		return this.email;
-	}
-	
-
 }

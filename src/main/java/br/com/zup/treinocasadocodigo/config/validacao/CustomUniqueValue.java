@@ -20,5 +20,9 @@ public @interface CustomUniqueValue {
 	Class<?>[] groups() default {};
 
 	Class<? extends Payload>[] payload() default {};
+	
+	String field();
+	
+	Class<?> dataClass();
 
 }
