@@ -26,4 +26,8 @@ public class Estado {
 		this.pais = pais;
 	}
 
+	public Pais getPais() {
+		return pais;
+	}
+
 }
